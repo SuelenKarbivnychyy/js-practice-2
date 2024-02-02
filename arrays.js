@@ -31,9 +31,13 @@ function everyOtherItem(items) {
 
 // 3. smallestNItems
 function smallestNItems(items, n) {
-  // console.log(`list items ${items}`);
 
-  // let result = [];  
+  const sorted_list = items.sort();  
+  const quantity_of_smallets_numbers = sorted_list.slice(0, n);
+
+  console.log(quantity_of_smallets_numbers.reverse()); 
 }
+
+// smallestNItems([20, 40, 12, 69, 1, 58], 5)
 
 
