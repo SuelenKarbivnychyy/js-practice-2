@@ -19,14 +19,14 @@ function everyOtherItem(items) {
 
   for (const item in items) {
     if (item %2 === 0) {
-      result.push(items[item])
+      result.push(items[item]);
     }
   }
 
-  console.log(result)
+  console.log(result);
 }
 
-// console.log(everyOtherItem(["apple", 2, "love", "monkey", 85, 42, 79]))
+// console.log(everyOtherItem(["apple", 2, "love", "monkey", 85, 42, 79]));
 
 
 // 3. smallestNItems
@@ -38,6 +38,6 @@ function smallestNItems(items, n) {
   console.log(quantity_of_smallets_numbers.reverse()); 
 }
 
-// smallestNItems([20, 40, 12, 69, 1, 58], 5)
+// smallestNItems([20, 40, 12, 69, 1, 58], 5);
 
 
