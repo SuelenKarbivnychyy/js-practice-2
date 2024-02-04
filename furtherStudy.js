@@ -28,51 +28,40 @@ function wordsInCommon(words1, words2) {
 
 
 
+/**
+ * Play a kids' word chain game.
+ * @param {*} : A list of names
+ * @returns the list of output chain words
+ */
 
 function kidsGame(names) {
   
-  let output = [names[0]];  
-  let lastItemFromResult = output[output.length -1];
-  
-
+  let output = [names.shift()];  
   let firstLetterToWords = {};
 
   for (let name of names) {
 
     if (firstLetterToWords.hasOwnProperty(name.charAt(0))) {
-      firstLetterToWords[name.charAt(0)].push(name);
+      firstLetterToWords[name.charAt(0)].push(name);      
     } else {
       firstLetterToWords[name.charAt(0)] = [name];
     }
   }
 
-  // while (true) {
-  let startLetter = lastItemFromResult.slice(-1);
-  console.log(startLetter);
+  while (true) {
+    
+    let startLetter = output[output.length -1].slice(-1);
 
-  if (! firstLetterToWords.hasOwnProperty(startLetter)) {
-    // break;
-    console.log(false)
+    if (!firstLetterToWords.hasOwnProperty(startLetter) || firstLetterToWords[startLetter].length === 0) { 
+      break;
+    }
+
+    let word = firstLetterToWords[startLetter].shift();    
+    output.push(word);
   }
 
-  let word = firstLetterToWords[startLetter].pop();
-  console.log(word);
-    // output.push(word);
-  }
-
-  // return output;
-  // console.log(startWith);
-
-  // for (let name of names) {
-  //   // currentWord = name.charAt(0);
-  //   if (name.charAt(0) === startWith) {
-  //     result.push(name);
-  //   }
-  // }
-
-  // console.log(result);
+  return output;
+}
 
 
-// }
-
-kidsGame(["bagon", "baltoy", "yamask", "starly", "nosepass", "kalob", "nicky", "booger"])
+console.log(kidsGame(["bagon", "baltoy", "yamask", "starly", "nosepass", "kalob", "nicky", "booger"]));
