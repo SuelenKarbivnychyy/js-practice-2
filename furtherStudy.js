@@ -31,5 +31,48 @@ function wordsInCommon(words1, words2) {
 
 function kidsGame(names) {
   
+  let output = [names[0]];  
+  let lastItemFromResult = output[output.length -1];
+  
 
-}
+  let firstLetterToWords = {};
+
+  for (let name of names) {
+
+    if (firstLetterToWords.hasOwnProperty(name.charAt(0))) {
+      firstLetterToWords[name.charAt(0)].push(name);
+    } else {
+      firstLetterToWords[name.charAt(0)] = [name];
+    }
+  }
+
+  // while (true) {
+  let startLetter = lastItemFromResult.slice(-1);
+  console.log(startLetter);
+
+  if (! firstLetterToWords.hasOwnProperty(startLetter)) {
+    // break;
+    console.log(false)
+  }
+
+  let word = firstLetterToWords[startLetter].pop();
+  console.log(word);
+    // output.push(word);
+  }
+
+  // return output;
+  // console.log(startWith);
+
+  // for (let name of names) {
+  //   // currentWord = name.charAt(0);
+  //   if (name.charAt(0) === startWith) {
+  //     result.push(name);
+  //   }
+  // }
+
+  // console.log(result);
+
+
+// }
+
+kidsGame(["bagon", "baltoy", "yamask", "starly", "nosepass", "kalob", "nicky", "booger"])
